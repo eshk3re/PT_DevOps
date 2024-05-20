@@ -217,13 +217,13 @@ def get_w(update: Update, context):
 
 
 def get_auths(update: Update, context):
-    #auths_info = execute_command_ssh("tail /var/log/auth.log")
-    auths_info = execute_command_ssh("last | head -n 10")
+    auths_info = execute_command_ssh("sudo tail /var/log/auth.log")
+    #auths_info = execute_command_ssh("last | head -n 10")
     update.message.reply_text(auths_info)
 
 
 def get_critical(update: Update, context):
-    critical_info = execute_command_ssh("journalctl -p crit -n 5")
+    critical_info = execute_command_ssh("sudo journalctl -p crit -n 5")
     update.message.reply_text(critical_info)
 
 

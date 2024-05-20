@@ -276,7 +276,7 @@ def get_services(update: Update, context):
 def get_repl_logs(update: Update, context):
     update.message.reply_text("Поиск логов")
     repl_logs_info = ssh_command("sudo cat /var/log/postgresql/postgresql-14-main.log | grep repl | tail")
-    update.message.reply_text(repl_logs_info[:4096])
+    update.message.reply_text(repl_logs_info[:4090])
 
 
 def get_emails(update: Update, context):

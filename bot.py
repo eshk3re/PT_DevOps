@@ -274,7 +274,7 @@ def get_services(update: Update, context):
     update.message.reply_text(services_info)
 
 def get_repl_logs(update: Update, context):
-    repl_logs_info = execute_ssh_command("sudo cat /var/log/postgresql/postgresql-14-main.log | grep repl")
+    repl_logs_info = execute_command_ssh("sudo cat /var/log/postgresql/postgresql-14-main.log | grep repl")
     update.message.reply_text(repl_logs_info[:4090])
 
 

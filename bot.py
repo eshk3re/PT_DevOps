@@ -274,18 +274,8 @@ def get_services(update: Update, context):
     update.message.reply_text(services_info)
 
 def get_repl_logs(update: Update, context):
-  #  try:
-  #      command = "cat /var/log/postgresql/postgresql-14-main.log | grep repl | tail -n 50"
-  #      res = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-   #     if res.returncode != 0 or res.stderr.decode() != "":
-   #         update.message.reply_text("Файл не открывается")
-   #     else:
-   #         logs = res.stdout.decode().strip('\n')
-   #         update.message.reply_text(logs[:4096])
-   # except Exception as e:
-    #    update.message.reply_text(f"Error: {str(e)}")
-    update.message.reply_text("Ищу логи о репликации...")
-    repl_logs_info = ssh_command("sudo cat /var/log/postgresql/postgresql-14-main.log | grep repl")
+    update.message.reply_text("Поиск логов")
+    repl_logs_info = ssh_command("sudo cat /var/log/postgresql/postgresql-14-main.log | grep repl | tail")
     update.message.reply_text(repl_logs_info[:4096])
 
 
